@@ -1,0 +1,15 @@
+{% extends 'layout.html' %} {% block content %}
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  "
+>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Subir Video</button>
+  </form>
+</div>
+{% endblock %} {% block title %} Home page {% endblock %}
