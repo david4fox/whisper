@@ -1,4 +1,4 @@
-{% extends 'layout.html' %} {% block content %}
+{% extends 'layout.html' %} {% block content %} {% load static %}
 <div
   style="
     display: flex;
@@ -7,9 +7,50 @@
     height: 70vh;
   "
 >
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Subir Video</button>
-  </form>
+  <div
+    style="
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      max-height: 70vh;
+    "
+  >
+    <form method="post" enctype="multipart/form-data" id="uploadForm">
+      <p class="custom-file-label">Upload a video:</p>
+      {% csrf_token %} {{ form.video_file }}
+      <div class="button-container">
+        <button class="upload-button" type="submit" id="uploadButton">
+          Subir Video
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="loading-container" id="loadingContainer" style="display: none">
+    <div class="loading-logo"></div>
+  </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#uploadButton").click(function (event) {
+      showLoading();
+      event.preventDefault();
+      $("#uploadForm").submit();
+    });
+
+    function showLoading() {
+      $("#loadingContainer").fadeIn();
+      $("#uploadForm").hide();
+    }
+
+    function hideLoading() {
+      $("#loadingContainer").fadeOut();
+      $("#uploadForm").show();
+    }
+  });
+</script>
 {% endblock %} {% block title %} Home page {% endblock %}

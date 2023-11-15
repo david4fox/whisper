@@ -1,12 +1,31 @@
-{% extends 'layout.html' %} {% block content %}
+{% extends 'layout.html' %} {% load static %} {% block content %}
+
 <div
   style="
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 80vh;
   "
 >
-  <p>This is the home page</p>
+  <div
+    style="
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <img
+      src="{% static 'imagenes/logo.png' %}"
+      alt="Logo"
+      style="margin-right: 10px; max-height: 70vh"
+    />
+    <p style="max-width: 70vh">
+      This is an aplication to extract the audio of a video and then transcript
+      it to text using the opensource
+      <a href="https://openai.com/research/whisper">AI Whisper</a>.
+    </p>
+  </div>
+  {% endblock %} {% block title %} Home page {% endblock %}
 </div>
-{% endblock %} {% block title %} Home page {% endblock %}

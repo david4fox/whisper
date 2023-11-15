@@ -1,12 +1,18 @@
 {% extends 'layout.html' %} {% block content %}
-<div
-  style="
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-  "
->
-  <p>{{transcripcion}}</p>
+<div style="margin: 20px auto; max-width: 1000px; text-align: center">
+  <h2 style="text-align: left; margin-bottom: 20px">La transcripción es:</h2>
+  <div
+    style="
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-height: 70vh;
+    "
+  >
+    <div style="background-color: white; overflow-y: auto; max-height: 70vh">
+      <p style="max-width: 100%; padding: 10px">{{ transcripcion }}</p>
+    </div>
+  </div>
 </div>
 {% endblock %} {% block title %} Transcription page {% endblock %}

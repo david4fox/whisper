@@ -5,3 +5,159 @@
   height: 200px;
   border: 3px solid green;
 }
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.button-container {
+  text-align: right;
+}
+
+.upload-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #343a40;
+  color: #343a40;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.upload-button:hover {
+  background-color: #343a40;
+  color: #fff;
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: #343a40;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+nav button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+/* Media Query para mostrar el botón en pantallas más pequeñas */
+@media (max-width: 768px) {
+  nav button {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #343a40;
+    z-index: 1;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    margin-right: 0;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ffffff;
+  }
+}
+
+.custom-file-label {
+  display: inline-block;
+  font-weight: bold;
+  text-align: left;
+  text-decoration: none;
+  color: #343a40;
+}
+
+.custom-file-input {
+  background-color: #fff;
+  color: #343a40;
+}
+
+.custom-file-input:hover {
+  background-color: #343a40;
+  color: #fff;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  border-radius: 10px;
+  width: 30%;
+  height: 30vh;
+  background: rgba(255, 255, 255, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-logo {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #343a40;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
